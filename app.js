@@ -9,6 +9,27 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+var user = process.env.DB_USER;
+var password =process.env.DB_USER_PW;
+
+const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
+
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+const dbName = process.env.DB_NAME;
+MongoClient.connect(mongo_route, function(err, client) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+ 
+  const db = client.db(dbName);
+ 
+  client.close();
+});
+
+
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
