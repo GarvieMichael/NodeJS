@@ -10,9 +10,13 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var user = process.env.DB_USER;
-var password =process.env.DB_USER_PW;
+var password = process.env.DB_USER_PW;
+var admin = 'admin'
+var admin_password = process.env.DB_ADMIN_PW;
 
-const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
+// const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
+const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database'
+
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
