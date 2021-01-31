@@ -11,18 +11,12 @@ var app = express();
 
 var user = process.env.DB_USER;
 var password = process.env.DB_USER_PW;
-var admin = 'admin'
-var admin_password = process.env.DB_ADMIN_PW;
 const dbName = process.env.DB_NAME;
 
-const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/' + dbName;
-// const mongo_route = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
-// const mongo_route = process.env.OPENSHIFT_MONGODB_DB_URL;
+const mongo_route = 'mongodb://' + user + ':' + password + dbName + '/' + dbName;
 
 console.log(user)
 console.log(password)
-console.log(admin)
-console.log(admin_password)
 console.log(dbName)
 
 const MongoClient = require('mongodb').MongoClient;
