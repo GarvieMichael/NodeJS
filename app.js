@@ -14,8 +14,8 @@ var password = process.env.DB_USER_PW;
 var admin = 'admin'
 var admin_password = process.env.DB_ADMIN_PW;
 
-const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
-// const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database'
+// const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
+const mongo_route = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
 
 
 const MongoClient = require('mongodb').MongoClient;
@@ -23,7 +23,7 @@ const assert = require('assert');
 
 const dbName = process.env.DB_NAME;
 MongoClient.connect(mongo_route, function(err, client) {
-  assert.equal(null, err);
+  assert.strictEqual(null, err);
   console.log("Connected successfully to server");
  
   const db = client.db(dbName);
