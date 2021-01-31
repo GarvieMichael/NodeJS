@@ -15,7 +15,7 @@ var admin = 'admin'
 var admin_password = process.env.DB_ADMIN_PW;
 const dbName = process.env.DB_NAME;
 
-const mongo_route = 'mongodb://' + user + ':' + password + '@172.30.191.161:27017'
+const mongo_route = 'mongodb://' + user + ':' + password + '@172.30.191.161:27017/' + dbName;
 // const mongo_route = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
 // const mongo_route = process.env.OPENSHIFT_MONGODB_DB_URL;
 
