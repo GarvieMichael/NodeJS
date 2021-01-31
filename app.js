@@ -15,7 +15,7 @@ var admin = 'admin'
 var admin_password = process.env.DB_ADMIN_PW;
 const dbName = process.env.DB_NAME;
 
-const mongo_route = 'mongodb://' + user + ':' + password + '@172.30.191.161:27017/' + dbName;
+const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/' + dbName;
 // const mongo_route = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
 // const mongo_route = process.env.OPENSHIFT_MONGODB_DB_URL;
 
@@ -25,16 +25,12 @@ console.log(admin)
 console.log(admin_password)
 console.log(dbName)
 
-
-
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 MongoClient.connect(mongo_route, function(err, client) {
   console.log(mongo_route);
-  if (err != null) {
-    console.log(err)
-  }
+  
   assert.strictEqual(null, err);
   console.log("Connected successfully to server");
  
@@ -42,9 +38,6 @@ MongoClient.connect(mongo_route, function(err, client) {
   console.log(db)
   client.close();
 });
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
