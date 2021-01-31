@@ -15,17 +15,19 @@ var admin = 'admin'
 var admin_password = process.env.DB_ADMIN_PW;
 const dbName = process.env.DB_NAME;
 
-// const mongo_route_user = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
-// const mongo_route_admin = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
-const mongo_route = process.env.OPENSHIFT_MONGODB_DB_URL;
+const mongo_route = 'mongodb://' + user + ':' + password + '@fc-database/fc-final-test-node'
+// const mongo_route = 'mongodb://' + admin + ':' + admin_password + '@fc-database/fc-final-test-node'
+// const mongo_route = process.env.OPENSHIFT_MONGODB_DB_URL;
 
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 MongoClient.connect(mongo_route, function(err, client) {
-  console.log(mongo_route_user);
-  console.log(mongo_route_admin);
+  console.log(mongo_route);
+  if (err != null) {
+    console.log(err)
+  }
   assert.strictEqual(null, err);
   console.log("Connected successfully to server");
  
