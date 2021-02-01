@@ -17,6 +17,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 MongoClient.connect(mongo_route, function(err, client) {
+  console.log(mongo_route)
   assert.strictEqual(null, err);
   console.log("Connected successfully to server");
   const db = client.db(dbName);
