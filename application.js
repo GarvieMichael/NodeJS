@@ -17,7 +17,7 @@ const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 
 MongoClient.connect(mongo_route, function(err, client) {
-  console.log(mongo_route)
+  console.log(mongo_route);
   assert.strictEqual(null, err);
   console.log("Connected successfully to server");
   const db = client.db(dbName);
@@ -25,7 +25,7 @@ MongoClient.connect(mongo_route, function(err, client) {
 });
 
 //  === Engine Setup ===
-application.listen(8080)
+application.listen(8080);
 
 //  === Exports ===
 module.exports = application;
