@@ -4,7 +4,7 @@ const application = express()
 const logger = require("morgan")
 
 //  === Middleware ===
-application.use(logger('combined', { stream: require("./logs/log_helper")}))
+application.use(logger('combined', { stream: require("/logs/log_helper")}))
 application.use("/", require("./config/routes"))
 
 // === Database Connectivity Testing ===
