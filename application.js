@@ -11,7 +11,7 @@ application.use("/", require("./config/routes"))
 const user = process.env.DB_USER;
 const user_password = process.env.DB_USER_PW;
 const dbName = process.env.DB_NAME;
-const mongo_route = 'mongodb://' + user + ':' + user_password + dbName + '/' + dbName;
+const mongo_route = 'mongodb://' + user + ':' + user_password + '@' + dbName + '/' + dbName;
 
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
