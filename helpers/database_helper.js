@@ -12,7 +12,7 @@ module.exports = {
         MongoClient.connect(mongo_route, function(err, client) {
         assert.strictEqual(null, err);
         console.log("Connected successfully to server");
-        db = client.db(dbName);
+        const db = client.db(dbName);
         client.close();
         });
     },
