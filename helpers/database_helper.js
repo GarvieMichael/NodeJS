@@ -29,6 +29,6 @@ module.exports = {
             this.test_connectivity;
         }
         db.collection_name.insert([data])
-    }
-
+    },
+    global_db: db
 }
