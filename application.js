@@ -10,7 +10,7 @@ application.use("/", require("./config/routes"))
 
 // === Database Connectivity Testing ===
 database_helper.test_connectivity()
-console.log(db)
+console.log(global_db)
 
 //  === Engine Setup ===
 application.listen(8080);
