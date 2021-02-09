@@ -11,6 +11,7 @@
     "faker": "^5.2.0",
     "mongodb": "^3.6.3",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "prettier": "2.2.1"
   }
 }
