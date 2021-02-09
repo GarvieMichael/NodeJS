@@ -4,6 +4,11 @@
 echo
 echo 'This will create a route and controller from the input given, and populate these files with the given methods.'
 
+new_route="${PWD}/config/routes/${1}_routes.js"
+new_controller="${PWD}/app/controllers/${1}_controller.js"
+controller_name=$1
+shift 1
+	
 # This will ensure that the script has not been called with no inputs
 if [[ $# == 0 ]]
 then
@@ -17,8 +22,6 @@ then
 # of the controller and route, and it creates blank controllers and routes. 
 elif [[ $# == 1 ]]
 then
-	new_route="${PWD}/config/routes/${1}_routes.js"
-	new_controller="${PWD}/app/controllers/${1}_controller.js"
 	if [ ! -f $new_controller ]
 	then
 		echo 'Creating new controller'
@@ -36,10 +39,6 @@ then
 # 2 and onward to create methods for the controllers and routes
 elif [[ $# > 1 ]]
 then
-	new_route="${PWD}/config/routes/${1}_routes.js"
-	new_controller="${PWD}/app/controllers/${1}_controller.js"
-	controller_name=$1
-	shift 1
 	count=1
 	for method in $@
 	do
@@ -110,11 +109,17 @@ then
 		
 		printf "
 		// === Exports ===
-		module.exports = ${controller_name}_routes >> $new_route
-		" >> $new_route
+		module.exports = ${controller_name}_routes" >> $new_route
 		
 	fi
 fi
+
+echo running prettier
+
+eval npx prettier --write "config/routes/${controller_name}_routes.js"
+eval npx prettier --write "app/controllers/${controller_name}_controller.js"
+
+echo
 echo 'exiting'
 echo
 exit
